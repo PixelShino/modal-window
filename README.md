@@ -52,6 +52,8 @@ function App() {
 ## Компонент модального окна
 
 Простой, многоразовый компонент модального окна на React с настраиваемым содержимым и действиями.
+![Image](https://github.com/user-attachments/assets/dfe0d6c3-dcdf-4377-8392-c9040e5fd2c9)
+![Image](https://github.com/user-attachments/assets/f045e369-67c4-4475-888e-81ae5cb86f07)
 
 ### Возможности
 
