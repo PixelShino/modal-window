@@ -1,41 +1,94 @@
-# React + Vite
+# Модальное окно | Modal Window
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<details>
+<summary>English version</summary>
 
-Currently, two official plugins are available:
+## Modal Window Component
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-  /Rus
-  // 1. Создайте отдельные компоненты:
-  // - Button: универсальный компонент кнопки.
-  // - Modal: универсальный компонент модального окна.
-  // - Main: компонент, представляющий основное содержимое приложения.
+A simple, reusable React modal window component with customizable content and actions.
 
-// 2. Разместите файлы компонентов:
-// - Поместите компоненты Button, Modal и Main в отдельные файлы внутри папки src/components.
+### Features
 
-// 3. Экспортируйте и импортируйте компоненты:
-// - Экспортируйте Button, Modal и Main из их файлов.
-// - Импортируйте эти компоненты в тех местах, где они используются.
+- Customizable title and content
+- Multiple button options
+- Flexible styling
+- Easy integration
 
-// 4. Создайте универсальный компонент Button:
-// - Настройте компонент так, чтобы он:
-// - Принимал проп `children` для отображения текста внутри кнопки.
-// - Принимал проп для изменения CSS-класса кнопки:
-// - Например, класс "button" для одной стилизации и "closeButton" для другой.
-// - Позволял добавлять разные функции в `onClick` (например, для закрытия модального окна).
+### Tech Stack
 
-// 5. Создайте универсальный компонент Modal:
-// - Настройте модальное окно с помощью следующих пропсов:
-// - `title`: текст заголовка окна.
-// - `content`: содержимое окна (текст или компоненты).
-// - `showCloseButton`: флаг, который управляет отображением кнопки закрытия.
+- React
+- Vite
+- CSS
+- GitHub Pages
 
-// 6. Создайте функцию в App:
-// - Напишите функцию в компоненте App, которую можно передавать через пропсы в компонент Button.
-// - Эта функция будет выполнять какое-либо действие, например, открывать или закрывать модальное окно.
+### Usage
 
-// 7. Избавьтесь от "prop drilling":
-// - Используйте технику component composition, чтобы передавать данные и функции напрямую между компонентами.
-// - Это поможет избежать передачи пропсов через промежуточный компонент Main.
+```jsx
+import { Modal, Button } from './components';
+
+function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setIsModalOpen(true)}>Open Modal</Button>
+
+      <Modal
+        title='Confirm action'
+        content='Are you sure you want to continue?'
+        isModalOpen={isModalOpen}
+        closeModal={() => setIsModalOpen(false)}
+      >
+        <Button onClick={() => setIsModalOpen(false)}>Cancel</Button>
+        <Button onClick={() => handleConfirm()}>Confirm</Button>
+      </Modal>
+    </>
+  );
+}
+```
+
+</details>
+
+## Компонент модального окна
+
+Простой, многоразовый компонент модального окна на React с настраиваемым содержимым и действиями.
+
+### Возможности
+
+- Настраиваемый заголовок и содержимое
+- Несколько вариантов кнопок
+- Гибкая стилизация
+- Простая интеграция
+
+### Технологический стек
+
+- React
+- Vite
+- CSS
+- GitHub Pages
+
+### Использование
+
+```jsx
+import { Modal, Button } from './components';
+
+function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setIsModalOpen(true)}>Открыть окно</Button>
+
+      <Modal
+        title='Подтвердите действие'
+        content='Вы уверены, что хотите продолжить?'
+        isModalOpen={isModalOpen}
+        closeModal={() => setIsModalOpen(false)}
+      >
+        <Button onClick={() => setIsModalOpen(false)}>Отмена</Button>
+        <Button onClick={() => handleConfirm()}>Подтвердить</Button>
+      </Modal>
+    </>
+  );
+}
+```
